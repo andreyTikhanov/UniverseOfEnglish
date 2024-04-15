@@ -7,7 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddIrregularVerbForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AddWordForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChangeForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DeleteWordsForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login.xaml.cs">
@@ -21,7 +33,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddIrregularVerbForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AddWordForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChangeForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DeleteWordsForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login.xaml">

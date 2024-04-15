@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\andre\source\repos\myEnglish_with_Button\myEnglish_with_Button\App.xaml
-4136413352
+8-1673985484
 
-111538756657
+19-1023410956
 195-2049853771
-AddWordForm.xaml;Login.xaml;MainWindow.xaml;ViewWordForm.xaml;
+AddIrregularVerbForm.xaml;AddWordForm.xaml;ChangeForm.xaml;DeleteWordsForm.xaml;EditForm.xaml;Login.xaml;MainWindow.xaml;ViewWordForm.xaml;
 
 False
 

@@ -69,7 +69,7 @@ namespace myEnglish_with_Button {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/myEnglish_with_Button;V1.0.0.0;component/login.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/myEnglish_with_Button;component/login.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Login.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

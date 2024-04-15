@@ -30,13 +30,42 @@ namespace myEnglish_with_Button
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             if (tbRusianWord.Text == "") return;
-            foreach (var word in NounList)
+
+            string englishTranslation = FindTranslation(tbRusianWord.Text);
+
+            if (englishTranslation != null)
             {
-                if (tbRusianWord.Text == word.Translation)
-                {
-                    tbEnglishWord.Text = word.Title;
-                }
+                tbEnglishWord.Text = englishTranslation;
             }
+            else
+            {
+                tbEnglishWord.Text = "Совпадение не найдено";
+            }
+        }
+        private string FindTranslation(string russianWord)
+        {
+            var translation =
+                (from noun in MainWindow.NounList
+                 where noun.Translation == russianWord
+                 select noun.Title).FirstOrDefault() ??
+                (from adjective in MainWindow.AdjectiveList
+                 where adjective.Translation == russianWord
+                 select adjective.Title).FirstOrDefault() ??
+                 (from regular in MainWindow.RegularVerbList
+                  where regular.Translation == russianWord
+                  select regular.Title).FirstOrDefault() ??
+                  (from irregular in MainWindow.IrregularVerbList
+                   where irregular.Translation == russianWord
+                   select $"{irregular.BaseForm}, {irregular.PastSimple}, {irregular.PastParticiple}").FirstOrDefault();
+
+            return translation ?? "Совпадений нет";
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.ShowDialog();
         }
     }
 }

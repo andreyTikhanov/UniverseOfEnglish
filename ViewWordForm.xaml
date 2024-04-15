@@ -5,12 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:myEnglish_with_Button"
         mc:Ignorable="d"
-        Title="ViewWordForm" Height="498" Width="764">
-    <Grid>
-        <Label FontSize="25">Введите слово: </Label>
-        <TextBox x:Name="tbRusianWord" Margin="11,67,57,304"></TextBox>
-        <Button Click="btnOk_Click" Margin="192,399,212,20">Ok</Button>
-        <Label FontSize="25" Margin="15,198,441,219">Перевод: </Label>
-        <TextBox x:Name="tbEnglishWord"  Margin="5,281,80,95"></TextBox>
+        Title="Просмотр слов" Height="498" Width="764">
+    <Window.Resources>
+        <ControlTemplate x:Key="HoverTextBoxTemplate" TargetType="{x:Type TextBox}">
+            <Border x:Name="border" Opacity="0.45" Background="#b0a47b" BorderBrush="Black" BorderThickness="0" CornerRadius="5">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="border" Property="Background" Value="#b0a47b"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#b0a47b"/>
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Margin" Value="236,315,216,60"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#b4a163"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    
+    <Grid Background="Bisque">
+        <Label FontSize="20" RenderTransformOrigin="0.504,0.478">Введите слово на русском: </Label>
+        <TextBox FontSize="20" Template="{StaticResource HoverTextBoxTemplate}" x:Name="tbRusianWord" Margin="3,67,2,356"></TextBox>
+        <Button Click="btnOk_Click" Margin="34,321,414,98">Ok</Button>
+        <Label FontSize="20" Margin="6,136,450,281">Перевод: </Label>
+        <TextBox FontSize="20" Template="{StaticResource HoverTextBoxTemplate}" x:Name="tbEnglishWord"  Margin="0,196,2,226"></TextBox>
+        <Button Click="btnExit_Click" Margin="414,320,38,100">Выйти</Button>
+        
+    
+    
+    
     </Grid>
 </Window>

@@ -45,9 +45,9 @@
         <Label  Foreground="#545969" Content="" x:Name="tbName" FontSize="20" Margin="10,0,358,451"/>
         <Button Click="btnAddWord_Click" Margin="248,50,238,419">Добавить слово</Button>
         <Button Click="btnLookWord_Click" Margin="248,139,238,330">Посмотреть слово</Button>
-        <Button Margin="248,234,238,234">Изменить слово</Button>
-        <Button Click="btnOk_Click" FontSize="20" Margin="324,452,314,24" >Выйти</Button>
-        <Button Margin="248,323,238,143">Удалить слово</Button>
+        <Button Click="btnChange_Click" Margin="248,234,238,234">Изменить слово</Button>
+        <Button Click="btnOk_Click" FontSize="20" Margin="333,432,305,44" >Выйти</Button>
+        <Button Click="btnDeleteWord_Click" Margin="248,323,238,143">Удалить слово</Button>
     </Grid>
 </Window>
 

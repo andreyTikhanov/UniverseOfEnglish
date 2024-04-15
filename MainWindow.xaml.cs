@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace myEnglish_with_Button
 {
@@ -20,9 +9,44 @@ namespace myEnglish_with_Button
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static void SaveListToJson<T>(List<T> list, string path)
+        {
+            try
+            {
+                string json = JsonConvert.SerializeObject(list);
+                File.WriteAllText(path, json);
+            }
+            catch (Exception ex) { }
+        }
+        public static List<T> LoadListFromJson<T>(string path)
+        {
+
+            try
+            {
+                string json = File.ReadAllText(path);
+                return JsonConvert.DeserializeObject<List<T>>(json);
+            }
+            catch (Exception ex)
+            {
+                return new List<T>();
+            }
+
+        }
+
         public static List<Noun>? NounList;
+        public static List<Adjective>? AdjectiveList;
+        public static List<PhraseVerb>? PhraseVerbList;
+        public static List<RegularVerb>? RegularVerbList;
+        public static List<IrregularVerb>? IrregularVerbList;
+
         public static string pathAdmin = "admin.txt";
         public static string pathNoun = "nouns.json";
+        public static string pathAdjective = "adjective.json";
+        public static string pathPhraseVerb = "phrase_verb.json";
+        public static string pathRegularVerb = "regular_verb.json";
+        public static string pathIrregularVerb = "irregular_verb.json";
+
+
         public string? Name = "";
         public MainWindow()
         {
@@ -36,6 +60,10 @@ namespace myEnglish_with_Button
             //comment
             InitializeComponent();
             tbName.Content = $"Привет, {Name}Что будем делать?";
+            NounList = LoadListFromJson<Noun>(pathNoun);
+            AdjectiveList =LoadListFromJson<Adjective>(pathAdjective);
+            RegularVerbList=LoadListFromJson<RegularVerb>(pathRegularVerb);
+            IrregularVerbList=LoadListFromJson<IrregularVerb>(pathIrregularVerb);
 
 
 
@@ -74,9 +102,23 @@ namespace myEnglish_with_Button
 
         private void btnLookWord_Click(object sender, RoutedEventArgs e)
         {
-            Visibility= Visibility.Hidden;
+            Visibility = Visibility.Hidden;
             ViewWordForm viewWordForm = new ViewWordForm();
             viewWordForm.ShowDialog();
+        }
+
+        private void btnChange_Click(object sender, RoutedEventArgs e)
+        {
+            Visibility= Visibility.Hidden;
+            ChangeForm changeForm = new ChangeForm();
+            changeForm.ShowDialog();
+        }
+
+        private void btnDeleteWord_Click(object sender, RoutedEventArgs e)
+        {
+            Visibility= Visibility.Hidden ;
+            DeleteWordsForm deleteWordsForm = new DeleteWordsForm();
+            deleteWordsForm.ShowDialog();
         }
     }
 }

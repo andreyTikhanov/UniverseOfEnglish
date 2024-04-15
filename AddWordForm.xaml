@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:myEnglish_with_Button"
         mc:Ignorable="d"
-        Title="AddWordForm" Height="550" Width="800">
+        Title="Добавление слова" Height="550" Width="800">
     <Window.Resources>
         <ControlTemplate x:Key="HoverTextBoxTemplate" TargetType="{x:Type TextBox}">
             <Border x:Name="border" Opacity="0.45" Background="#b0a47b" BorderBrush="Black" BorderThickness="0" CornerRadius="5">
@@ -42,11 +42,16 @@
     </Window.Resources>
 
     <Grid Background="Bisque">
-        <Label FontSize="20" Content="Введите слово на английском: " Margin="13,23,243,434" RenderTransformOrigin="0.487,0.384"></Label>
-        <TextBox x:Name="tbAddEnglish" Template="{StaticResource HoverTextBoxTemplate}" FontSize="30" Margin="0,88,0,382" />
-        <Label FontSize="20" Content="Введите слово на русском: " Margin="10,191,372,267"></Label>
-        <TextBox x:Name="tbAddRussian" Template="{StaticResource HoverTextBoxTemplate}" FontSize="30" Margin="0,272,0,198" />
-        <Button Click="btnExit_Click" FontSize="20" Margin="329,445,309,31" >Выйти</Button>
-        <Button Click="btnSave_Click" FontSize="20" Margin="329,356,309,120" >Сохранить</Button>
+        <Label FontSize="20" Content="Введите слово на русском: " Margin="5,4,251,453" RenderTransformOrigin="0.487,0.384"></Label>
+        <TextBox x:Name="tbAddEnglish" Template="{StaticResource HoverTextBoxTemplate}" FontSize="25" Margin="-1,158,1,315" />
+        <Label FontSize="20" Content="Введите слово на английском: " Margin="2,114,380,344"></Label>
+        <TextBox x:Name="tbAddRussian" Template="{StaticResource HoverTextBoxTemplate}" FontSize="25" Margin="1,47,-1,428" />
+        <Button Click="btnExit_Click" FontSize="20" Margin="578,372,52,104" >Выйти</Button>
+        <Button Click="btnNoun_Click" FontSize="20" Margin="25,277,613,198" >Noun</Button>
+        <Button Click="btnAdjective_Click" Margin="580,276,46,199">Adjective</Button>
+        <Button Click="btnPhraseVerb_Click" FontSize="20" Margin="296,278,299,194" >Phrase Verb</Button>
+        <Button Click="btnRegularVerb_Click" Margin="24,371,612,104">Regular Verb</Button>
+        <Button Click="btnIrregularVerb_Click" Margin="291,369,302,103">Irregular Verb</Button>
+        <Label FontSize="20" Content="Если глагол не правильный, нажмите кнопку Irregular Verb" Margin="7,462,165,14"></Label>
     </Grid>
 </Window>
